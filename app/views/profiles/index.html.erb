@@ -5,7 +5,7 @@
 </p>
 
 <ul>
-  <% @profiles.each do |product| %>
+  <% @profiles.each do |profile| %>
   <li>
     <%= profile.first_name %> (<%= profile.mail %>)
     <%= link_to "voir le profil", profile_path(profile) %>
