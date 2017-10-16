@@ -35,7 +35,8 @@
           </li>
         </ul>
       </div>
-      <%= link_to "Articles", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Articles", posts_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Nouvel article", new_post_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <div class="dropdown">
         <%= link_to "Annuaire", "#", class: "navbar-wagon-item navbar-wagon-link", "data-toggle" => "dropdown" %>
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
