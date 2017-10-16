@@ -16,6 +16,7 @@ gem 'jquery-rails'
 gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
+gem 'will_paginate', '~> 3.1.0'
 #geocoder
 gem "geocoder"
 gem "coffee-rails"
