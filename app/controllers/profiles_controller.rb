@@ -22,9 +22,14 @@ class ProfilesController < ApplicationController
   end
 
   def create
-    @profile = Profile.new(params[:profile])
-    @profile.save
-    redirect_to profiles_path
+    @profile = Profile.new(profile_params)
+    if @profile.save
+      flash[:notice] = "Profil créé"
+      redirect_to root_path
+    else
+      flash[:alert] = "Profil non créé"
+      render :edit
+    end
   end
 
   def edit

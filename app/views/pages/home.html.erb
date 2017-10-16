@@ -1,31 +1,23 @@
- <!-- BANNER -->
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://kitt.lewagon.com/placeholder/cities/berlin');">
-  <div class="banner-content">
-    <h1>Lien d'amour</h1>
-    <p>Famille Chatel</p>
-    <a class="btn btn-primary btn-lg">Se connecter</a>
-  </div>
-</div>
-
-
 <% if user_signed_in? %>
 <!-- ARTICLES -->
 <div class="message">
+  <% @posts.each do |post| %>
   <img class="avatar-large" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
   <div class="message-name">
     <h3>Charles-Eric</h3>
-    <p>10/07/17</p>
+    <p><%= post.created_at.strftime('%b %d, %Y') %></p>
   </div>
   <div class="message-body">
-    <p><strong>I am not sure yet!</strong></p>
+    <p><strong><%= post.title %></strong></p>
     <p>
-      I am not sure yet! I might be in Shanghai at this moment... Can I tell you later?
+      <%= raw(post.body).truncate(358) %>
     </p>
   </div>
   <div class="message-status">
     <p class="status pending"></p>
     <p class="price"><i class="fa fa-eye" aria-hidden="true"></i></p>
   </div>
+  <% end %>
 </div>
 
 <!-- CARD -->
@@ -66,4 +58,14 @@
     </div>
   </div>
 </div>
+<% else %>
+ <!-- BANNER -->
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://kitt.lewagon.com/placeholder/cities/berlin');">
+  <div class="banner-content">
+    <h1>Lien d'amour</h1>
+    <p>Famille Chatel</p>
+    <a class="btn btn-treehouse">Se connecter</a>
+  </div>
+</div>
+
 <% end %>
