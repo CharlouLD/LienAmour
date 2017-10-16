@@ -10,16 +10,90 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "Association", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Lien Damour", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <div class="dropdown">
+        <%= link_to "Association", "#", class: "navbar-wagon-item navbar-wagon-link", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+          <li>
+            <%= link_to "#" do %>
+              <i class="fa fa-user"></i>&nbspAssociation Hélène Chatel
+            <% end %>
+          </li>
+          <li>
+            <%= link_to "#" do %>
+              <i class="fa fa-home"></i>&nbspA.G. Hélène Chatel 2017
+            <% end %>
+          </li>
+          <li>
+            <%= link_to "#" do %>
+              <i class="fa fa-home"></i>&nbspAvenir en Héritage
+            <% end %>
+          </li>
+          <li>
+            <%= link_to "#" do %>
+              <i class="fa fa-file-pdf-o"></i>&nbspDocuments officiels
+            <% end %>
+          </li>
+        </ul>
+      </div>
+      <%= link_to "Articles", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <div class="dropdown">
+        <%= link_to "Annuaire", "#", class: "navbar-wagon-item navbar-wagon-link", "data-toggle" => "dropdown" %>
+        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+          <li>
+            <%= link_to "#" do %>
+              Famille Robert Chatel
+            <% end %>
+          </li>
+          <li>
+            <%= link_to "#" do %>
+              Famille Monique Chatel
+            <% end %>
+          </li>
+          <li>
+            <%= link_to "#" do %>
+              Famille Odette Chatel
+            <% end %>
+          </li>
+          <li>
+            <%= link_to "#" do %>
+              Famille François Chatel
+            <% end %>
+          </li>
+          <li>
+            <%= link_to "#" do %>
+              Famille Max Chatel
+            <% end %>
+          </li>
+          <li>
+            <%= link_to "#" do %>
+              Famille Philippe Chatel
+            <% end %>
+          </li>
+          <li>
+            <%= link_to "#" do %>
+              Famille Marie-Thérèse Chatel
+            <% end %>
+          </li>
+          <li>
+            <%= link_to "#" do %>
+              <i class="fa fa-file-pdf-o"></i>&nbspFamille Elisabeth Chatel
+            <% end %>
+          </li>
+          <li>
+            <%= link_to "#" do %>
+              <i class="fa fa-file-pdf-o"></i>&nbspFamille Marie-Alice Dupont
+            <% end %>
+          </li>
+        </ul>
+      </div>
       <%= link_to "Photos", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Annuaire", "#", class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Autres", "#", class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Contact", "#", class: "navbar-wagon-item navbar-wagon-link" %>
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
+        <%#= link_to "Association", "#", class: "navbar-wagon-item navbar-wagon-link", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <%= image_tag "http://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
