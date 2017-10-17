@@ -1,21 +1,26 @@
 <div class="container">
-  <div class="col-sm-10 col-sm-offset-1 col-xs-12 blog-content">
+  <div class="col-sm-10 col-sm-offset-1 col-xs-12">
     <% @posts.each do |post| %>
-    <div class="col-xs-12">
-      <div class="text-center">
-        <h2><%= post.title %></h2>
-        <h6><%= post.created_at.strftime('%b %d, %Y') %></h6>
+      <div class="post">
+        <div class='post-upvote'>
+          <div class="post-arrow"></div>
+          <div class='post-count'>95</div>
+        </div>
+        <img src="http://via.placeholder.com/100x100" alt="IMG" class="post-image hidden-xs">
+        <div class='post-body'>
+          <h3><%= post.title %><%= post.created_at.strftime('%b %d, %Y') %></h3>
+          <p><%= post.body %></p>
+        </div>
+        <ul class="list-inline post-controls post-controls-hidden hidden-sm hidden-xs">
+          <li>
+            <%= link_to post_path(post) do %>
+              <i class="fa fa-eye"></i>
+            <% end %>
+          </li>
+          <li><a href=""><i class="fa fa-share"></i></a></li>
+          <li><a href=""><i class="fa fa-star"></i></a></li>
+        </ul>
       </div>
-
-      <div>
-        <%= raw(post.body).truncate(358) %>
-      </div>
-
-      <div class="text-center">
-        <%= link_to "READ MORE", post_path(post) %>
-      </div>
-      <br>
-    </div>
     <% end %>
   </div>
 </div>
