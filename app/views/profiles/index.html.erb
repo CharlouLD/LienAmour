@@ -16,19 +16,18 @@
         <%= @profiles.each do |profile| %>
           <div class="col-xs-12 col-sm-4">
             <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
-              <div class="card-category">Popular</div>
+              <div class="card-category">Famille</div>
               <div class="card-description">
                 <h2><%= profile.first_name %></h2>
                 <p><%= profile.job %></p>
               </div>
               <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-              <a class="card-link" href="#" ></a>
+              <%= link_to "", profile_path(profile), class: 'card-link' %>
             </div>
           </div>
         <% end %>
       </div>
       <%#= render "results" %>
-
     </div>
   </div>
   <div class="row">
@@ -37,7 +36,7 @@
         <%#= will_paginate @profiles, renderer: BootstrapPagination::Rails %>
       </div>
       <%# if @profiles.next_page %>
-<!--       <div class="btn-load-more btn btn-treehouse-red"><%= t "button.more" %></div>
+<!--       <div class="btn-load-more btn btn-treehouse-red"><%#= t "button.more" %></div>
  -->      <%# end %>
     </div>
   </div>
@@ -63,7 +62,7 @@
         <%#= will_paginate @profiles, renderer: BootstrapPagination::Rails %>
       </div>
       <%# if @profiles.next_page %>
-<!--       <div class="btn-load-more btn btn-treehouse-red"><%= t "button.more" %></div>
+<!--       <div class="btn-load-more btn btn-treehouse-red"><%#= t "button.more" %></div>
  -->      <%# end %>
     </div>
   </div>
