@@ -1,103 +1,63 @@
-<!-- SEARCH LARGE SCREEN -->
-<div class="container-fluid bg-white padded-light hidden-xs hidden-sm hidden-md">
-  <div class="row">
-    <div class="col-xs-3">
-      <div class="well">
-        <form action="#">
-          <input type="text">
-          <input type="text">
-          <input type="text">
-        </form>
-      </div>
-      <%#= render "search" %>
-    </div>
-    <div class="col-xs-9">
-      <div class="well">
-        <%= @profiles.each do |profile| %>
-          <div class="col-xs-12 col-sm-4">
-            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
-              <div class="card-category">Famille</div>
-              <div class="card-description">
-                <h2><%= profile.first_name %></h2>
-                <p><%= profile.job %></p>
-              </div>
-              <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-              <%= link_to "", profile_path(profile), class: 'card-link' %>
-            </div>
+<div class="main-container">
+  <div class="results-container">
+    <form style="padding-top: 1em;">
+      <div class="form-row align-items-center">
+        <div class="col-sm-3">
+          <label class="sr-only">Name</label>
+          <input type="text" class="form-control mb-2 mb-sm-0" id="inlineFormInputName" placeholder="Jane Doe">
+        </div>
+        <div class="col-sm-3">
+          <label class="sr-only">Places</label>
+          <div class="input-group mb-2 mb-sm-0">
+            <div class="input-group-addon"><i class="fa fa-map-marker"></i></div>
+            <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Ville/Pays">
           </div>
-        <% end %>
+        </div>
+        <div class="col-auto">
+          <button type="submit" class="btn btn-treehouse"><i class="fa fa-search"></i>&nbspRechercher</button>
+        </div>
       </div>
-      <%#= render "results" %>
-    </div>
+    </form>
+    <div class="card" style="background-image: url('https://kitt.lewagon.com/placeholder/cities/rio.jpg)">Rio</div>
+    <div class="card" style="background-image: url('https://kitt.lewagon.com/placeholder/cities/berlin')">Berlin</div>
+    <div class="card" style="background-image: url('https://kitt.lewagon.com/placeholder/cities/shanghai.jpg)">Shanghai</div>
+    <div class="card" style="background-image: url('https://kitt.lewagon.com/placeholder/cities/barcelona.jpg)">Barcelona</div>
+    <div class="card" style="background-image: url('https://kitt.lewagon.com/placeholder/cities/rio.jpg)">Rio</div>
+    <div class="card" style="background-image: url('https://kitt.lewagon.com/placeholder/cities/rio.jpg)">Rio</div>
+    <div class="card" style="background-image: url('https://kitt.lewagon.com/placeholder/cities/berlin')">Berlin</div>
+    <div class="card" style="background-image: url('https://kitt.lewagon.com/placeholder/cities/shanghai.jpg)">Shanghai</div>
+    <div class="card" style="background-image: url('https://kitt.lewagon.com/placeholder/cities/barcelona.jpg)">Barcelona</div>
+    <div class="card" style="background-image: url('https://kitt.lewagon.com/placeholder/cities/rio.jpg)">Rio</div>
+    <div class="card" style="background-image: url('https://kitt.lewagon.com/placeholder/cities/rio.jpg)">Rio</div>
+    <div class="card" style="background-image: url('https://kitt.lewagon.com/placeholder/cities/berlin')">Berlin</div>
+    <div class="card" style="background-image: url('https://kitt.lewagon.com/placeholder/cities/shanghai.jpg)">Shanghai</div>
+    <div class="card" style="background-image: url('https://kitt.lewagon.com/placeholder/cities/barcelona.jpg)">Barcelona</div>
+    <div class="card" style="background-image: url('https://kitt.lewagon.com/placeholder/cities/rio.jpg)">Rio</div>
+    <div class="card" style="background-image: url('https://kitt.lewagon.com/placeholder/cities/rio.jpg)">Rio</div>
+    <div class="card" style="background-image: url('https://kitt.lewagon.com/placeholder/cities/berlin')">Berlin</div>
+    <div class="card" style="background-image: url('https://kitt.lewagon.com/placeholder/cities/shanghai.jpg)">Shanghai</div>
+    <div class="card" style="background-image: url('https://kitt.lewagon.com/placeholder/cities/barcelona.jpg)">Barcelona</div>
+    <div class="card" style="background-image: url('https://kitt.lewagon.com/placeholder/cities/rio.jpg)">Rio</div>
+    <div class="card" style="background-image: url('https://kitt.lewagon.com/placeholder/cities/berlin.jpg)">Berlin</div>
   </div>
-  <div class="row">
-    <div class="col-xs-9 col-xs-offset-3">
-      <div class="text-center with-button">
-        <%#= will_paginate @profiles, renderer: BootstrapPagination::Rails %>
-      </div>
-      <%# if @profiles.next_page %>
-<!--       <div class="btn-load-more btn btn-treehouse-red"><%#= t "button.more" %></div>
- -->      <%# end %>
-    </div>
-  </div>
-</div>
-<!-- SEARCH SMALL SCREEN -->
-<div class="container-fluid bg-white padded-light hidden-lg">
-  <div class="row">
-    <div class="col-xs-12 col-sm-12">
-      <form action="#">
-        <input type="text">
-        <input type="text">
-        <input type="text">
-      </form>
-      <%#= render "search" %>
-    </div>
-    <div class="col-xs-12 col-sm-12">
-      <%#= render "results" %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-9 col-xs-offset-3">
-      <div class="text-center with-button">
-        <%#= will_paginate @profiles, renderer: BootstrapPagination::Rails %>
-      </div>
-      <%# if @profiles.next_page %>
-<!--       <div class="btn-load-more btn btn-treehouse-red"><%#= t "button.more" %></div>
- -->      <%# end %>
-    </div>
-  </div>
+  <div id="map"></div>
 </div>
 
+    <!-- Gmaps js: building the map -->
+    <script>
+      function initMap() {
+        // Create a map object and specify the DOM element for display.
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 52.5206, lng: 13.4098},
+          scrollwheel: false,
+          zoom: 8
+        });
+      }
+    </script>
+    <!-- Gmaps JavaScript -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzER7O10ZOUp7FloJzMe2r8X1GIQhgt7Q&callback=initMap"></script>
 
 
 
 
-<h1>All Profiles</h1>
 
-<p>
-  <%= link_to "Home", "/" %>
-</p>
-
-<ul>
-  <% @profiles.each do |profile| %>
-  <li>
-    <%= profile.first_name %> (<%= profile.mail %>)
-    <%= link_to "voir le profil", profile_path(profile) %>
-  </li>
-  <% end %>
-</ul>
-
-<div id="map" style="width: 100%; height: 600px;"></div>
-
-<% content_for(:after_js) do %>
-  <%= javascript_tag do %>
-    $(document).on('ready', function() {
-      handler = Gmaps.build('Google');
-      handler.buildMap({ internal: { id: 'map' } }, function(){
-        markers = handler.addMarkers(<%= raw @markers.to_json %>);
-        handler.bounds.extendWith(markers);
-        handler.fitMapToBounds();
-      });
-    })
-  <% end %>
-<% end %>
